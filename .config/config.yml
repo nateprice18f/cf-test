@@ -1,0 +1,22 @@
+version: 2.1
+
+orbs:
+  orbs:
+    cloudfoundry: circleci/cloudfoundry@1.0.0
+
+workflows:
+  build_deploy:
+    jobs:
+      - cloudfoundry/blue_green:
+          appname: testapp
+          # build_steps:
+          #   - run: echo 'your build steps'
+          #   - run: echo 'you can have more, too'
+          # context: your-context
+          domain: http://np-web.app.cloud.gov
+          endpoint: api.fr.cloud.gov
+          org: sandbox-gsa
+          space: nate.price
+          # validate_steps:
+          #   - run: echo 'your validation steps'
+          #   - run: echo 'you can also have more of these'
